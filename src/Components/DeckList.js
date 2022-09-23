@@ -21,7 +21,9 @@ export default function DeckList({ decks, loadDecks }) {
           <p className="card-text">{deck.description}</p>
           <div className="d-flex justify-content-between">
             <div>
+              <Link to={`/decks/${deck.id}`}>
         <button className="btn btn-secondary">View</button>
+              </Link>
         <Link to={`/decks/${deck.id}/study`}>
         <button className="btn btn-primary ml-2">Study</button>
         </Link>

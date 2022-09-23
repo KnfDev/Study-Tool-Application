@@ -5,6 +5,7 @@ import Home from "../Components/Home";
 import { Route, Switch } from "react-router-dom";
 import Study from "../Components/Study";
 import AddCard from "../Components/AddCard";
+import Deck from "../Components/Deck";
 function Layout() {
   return (
     <>
@@ -20,6 +21,9 @@ function Layout() {
         </Route>
         <Route path="/decks/:deckId/cards/new">
           <AddCard/>
+        </Route>
+        <Route path="/decks/:deckId">
+          <Deck/>
         </Route>
         <Route>
         <NotFound />

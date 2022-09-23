@@ -1,11 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-export default function CardForm({ deck }) {
-  const [newCard, setNewCard] = useState({
-    front: "",
-    back: "",
-  })
+export default function CardForm({ deck, newCard, setNewCard, submitHandler }) {
 
+  
   function onChange(event){
     const {target} = event
     const value = target.value
@@ -16,7 +13,7 @@ export default function CardForm({ deck }) {
   return (
     <div>
       <h2>{deck.name}: Add Card</h2>
-      <form>
+      <form onSubmit={submitHandler}>
         <label>Front</label>
         <br />
         <textarea 
@@ -33,7 +30,7 @@ export default function CardForm({ deck }) {
         onChange={onChange} 
         className="w-100" 
         placeholder="Back side of card"></textarea>
-        <button className="btn btn-secondary"><Link to={`/decks/${deck.id}`}>Done</Link></button>
+        <Link to={`/decks/${deck.id}`}><button className="btn btn-secondary">Done</button></Link>
         <button type="submit" className="btn btn-primary ml-2">Save</button>
       </form>
     </div>
