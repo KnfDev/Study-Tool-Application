@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { readDeck, deleteDeck, deleteCard } from "../utils/api";
 import { ShortBreadCrumb } from "../utils/api/misc";
 import { Link } from "react-router-dom";
 
 export default function Deck() {
-  const history = useHistory();
+  // const history = useHistory();
   const [deck, setDeck] = useState(null);
   const { deckId } = useParams();
 

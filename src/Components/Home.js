@@ -2,11 +2,10 @@ import DeckList from "./DeckList"
 import { listDecks } from "../utils/api"
 import { Link } from "react-router-dom"
 import { useEffect,useState } from "react"
-export default function Home(){
+export default function Home({errors, setErrors}){
   const [decks, setDecks] = useState([])
-  const [errors, setErrors] = useState(null)
-  useEffect(loadDecks, [])
 
+  useEffect(loadDecks, [setErrors])
   function loadDecks(){
     const abortController = new AbortController()
     setErrors(null)

@@ -1,7 +1,7 @@
 import { createDeck } from "../utils/api"
 import { ShortBreadCrumb } from "../utils/api/misc"
 import DeckForm from "./DeckForm"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { listDecks } from "../utils/api"
 import { useHistory } from "react-router-dom"
 

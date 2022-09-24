@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import NotFound from "./NotFound";
 import Home from "../Components/Home";
@@ -10,14 +10,19 @@ import CreateDeck from "../Components/CreateDeck";
 import EditCard from "../Components/EditCard";
 import EditDeck from "../Components/EditDeck";
 function Layout() {
+  const [errors,setErrors] = useState(null)
   return (
-    <>
+    <div>
+      
       <Header />
       <div className="container">
         {/* TODO: Implement the screen starting here */}
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Home
+            errors={errors}
+            setErrors={setErrors}
+            />
           </Route>
           <Route path="/decks/:deckId/study">
             <Study />
@@ -42,7 +47,8 @@ function Layout() {
           </Route>
         </Switch>
       </div>
-    </>
+    </div>
+    
   );
 }
 
