@@ -5,10 +5,11 @@ import {BreadCrumb} from "../utils/api/misc";
 
 export default function Study() {
   const history = useHistory();
-  const { deckId } = useParams();
   const [currentDeck, setCurrentDeck] = useState(null);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [currentSide, setCurrentSide] = useState(true);
+  
+  const { deckId } = useParams();
   useEffect(loadDecks, [deckId]);
   function loadDecks() {
     const abortController = new AbortController();
@@ -17,6 +18,7 @@ export default function Study() {
     // .catch(setErrors)
     return () => abortController.abort;
   }
+
   if (currentDeck === null) {
     return "loading..";
   }
@@ -56,12 +58,16 @@ export default function Study() {
   }
   return (
     <>
-      <BreadCrumb data={currentDeck} />
+      <BreadCrumb 
+      route={"Study"}
+      data={currentDeck} />
       <h1>Study: {currentDeck.name}</h1>
       <div className="card">
         <div className="card-body">
           <h5 className="card-title">
-            {currentCardIndex + 1} of {currentDeck.cards.length}
+           <p>
+            Card {currentCardIndex + 1} of {currentDeck.cards.length}
+            </p>
           </h5>
           <p className="card-text">
             {currentSide ? currentCard.front : currentCard.back}

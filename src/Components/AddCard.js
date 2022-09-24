@@ -29,7 +29,7 @@ export default function AddCard(){
   }
   console.log(deck)
   return <>
-  <BreadCrumb data={deck}/>
+  <BreadCrumb data={deck} route={'Add Card'}/>
   <CardForm 
   deckId={deckId}
   submitHandler={submitHandler}

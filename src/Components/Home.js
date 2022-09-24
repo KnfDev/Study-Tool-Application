@@ -1,5 +1,6 @@
 import DeckList from "./DeckList"
 import { listDecks } from "../utils/api"
+import { Link } from "react-router-dom"
 import { useEffect,useState } from "react"
 export default function Home(){
   const [decks, setDecks] = useState([])
@@ -20,7 +21,9 @@ export default function Home(){
   
 
     return(<>
+    <Link to="/decks/new">
     <button className="btn btn-secondary mb-2">Create Deck</button>
+    </Link>
     <DeckList decks={decks} loadDecks={loadDecks}/>
     </>
     ) 

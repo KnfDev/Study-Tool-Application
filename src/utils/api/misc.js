@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function BreadCrumb({ data }) {
+function BreadCrumb({ data, route }) {
   return (
     <div>
       <nav aria-label="breadcrumb">
@@ -12,7 +12,7 @@ function BreadCrumb({ data }) {
             <Link to={`/decks/${data.id}`}>{data.name}</Link>
           </li>
           <li className="breadcrumb-item active" aria-current="page">
-            Data
+            {route}
           </li>
         </ol>
       </nav>
@@ -20,7 +20,7 @@ function BreadCrumb({ data }) {
   );
 }
 
-function ShortBreadCrumb({ data }) {
+function ShortBreadCrumb({ data, route }) {
   return (
     <div>
       <nav aria-label="breadcrumb">
@@ -28,9 +28,8 @@ function ShortBreadCrumb({ data }) {
           <li className="breadcrumb-item">
             <Link to="/">Home</Link>
           </li>
-          <li className="breadcrumb-item">{data.name}</li>
           <li className="breadcrumb-item active" aria-current="page">
-            Data
+            {route}
           </li>
         </ol>
       </nav>
